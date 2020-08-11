@@ -31,6 +31,7 @@ class Oystercard
   
     def touch_out(exit_station)
       @exit_station = exit_station
+      @journey_log[entry_station] = exit_station
       @entry_station = nil
       deduct(MINIMUM_AMOUNT)
     end
