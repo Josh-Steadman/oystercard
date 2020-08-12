@@ -6,7 +6,7 @@ class Journey
     end
     PENALTY_FARE = 6 
    
-    def end_journey(exit_station)
+    def end_journey(exit_station= nil)
       @exit_station = exit_station
     end
 
@@ -15,6 +15,6 @@ class Journey
     end
 
     def journey_complete?
-
+      @entry_station && @exit_station
     end
 end
