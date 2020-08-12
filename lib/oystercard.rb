@@ -15,7 +15,7 @@ class Oystercard
     def top_up(amount)
       fail "DENIED: Max balance is #{MAX_BALANCE}" if balance + amount > MAX_BALANCE
       @balance += amount
-      amount
+      @balance
     end
   
     def in_journey?
