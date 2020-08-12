@@ -14,7 +14,7 @@ class Journey
      @exit_station != nil ? 1 : PENALTY_FARE
     end
 
-    def journey_complete
+    def journey_complete?
 
     end
 end
