@@ -15,4 +15,12 @@ describe Journey do
       end
     end
 
+    describe '#end_journey' do
+      it 'when journey ends regular fare is deducted' do
+        journey = Journey.new(first_station)
+        journey.end_journey(second_station)
+        expect(journey.fare).to eq 1
+      end
+    end
+
 end
