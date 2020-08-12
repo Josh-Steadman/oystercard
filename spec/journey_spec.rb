@@ -9,4 +9,10 @@ describe Journey do
       end
     end
 
+    describe '#fare' do
+      it 'will return penalty fair as default' do
+        expect(subject.fare).to eq Journey::PENALTY_FARE
+      end
+    end
+
 end
