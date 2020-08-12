@@ -5,7 +5,7 @@ class Oystercard
   
     def initialize
       @balance = 0
-      @journey_log = {}
+      @journey_log = []
       
     end
   
@@ -31,7 +31,7 @@ class Oystercard
   
     def touch_out(exit_station)
       @exit_station = exit_station
-      @journey_log[entry_station] = exit_station
+      record_journey
       @entry_station = nil
       deduct(MINIMUM_AMOUNT)
     end
@@ -40,6 +40,11 @@ class Oystercard
   def deduct(amount)
     @balance -= amount
     @balance
-    end
   end
+
+  def record_journey
+    @journey_log.push(:entry_station => entry_station, :exit_station => exit_station)
+  end
+
+end
   
