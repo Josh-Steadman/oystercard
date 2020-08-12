@@ -24,13 +24,7 @@ describe Oystercard do
     end
   end
 
-  describe '#deduct' do 
-    let(:exit_station) { double :station }
-    it 'deduct balance on oyster card when called' do
-        subject.top_up(15)
-       expect { subject.touch_out(exit_station) }.to change { subject.balance }.by(-1)
-    end 
-  end
+  
   
   
   it 'initialy is not in journey' do
