@@ -1,7 +1,8 @@
 require 'journey_log'
 
 describe JourneyLog do
-  let(:station) { double :station }
+  let(:first_station) { double :first_station }
+  let(:second_station) { double :second_station }
   let(:trip) { double :trip }
   let(:journey_class) { double :journey_class, new: trip}
 
@@ -19,10 +20,21 @@ describe JourneyLog do
 
   describe '#start' do
     it 'has an entry station' do
-      subject.start(station)
-      expect(subject.entry_station).to eq station
+      subject.start(first_station)
+      expect(subject.entry_station).to eq first_station
     end
   end
+
+  describe '#current_journey' do
+    xit 'returns an incomplete journey if no exit' do
+       subject.start(first_station)
+       subject.finish
+       expect(subject.current_journey).to include({:entry_station => first_station})
+    end
+
+  end
+
+  
 end
 
 
