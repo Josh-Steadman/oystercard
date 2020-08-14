@@ -15,7 +15,11 @@ describe '#start' do
     it 'starts a journey' do
       expect(journey_class).to receive(:new).with(entry_station: first_station)
       subject.start(first_station)
-     
+    end
+
+    it 'records start of journey' do
+      subject.start(first_station)
+      expect(subject.journeys).to include journey
     end
   end
 
