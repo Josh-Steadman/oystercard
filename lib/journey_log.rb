@@ -12,8 +12,7 @@ class JourneyLog
     @entry_station = entry_station
     journey = @journey_class.new(entry_station: entry_station)
     @journey_log.push(journey)
-   
-    
+    current_journey
   end
   
   def finish
@@ -25,5 +24,9 @@ class JourneyLog
 
   private
   def current_journey
+    if @entry_station != nil
+      [{entry_station: entry_station}]
+    end
+    
   end
 end

@@ -21,9 +21,16 @@ describe '#start' do
     end
 
     it 'records start of journey' do
-      allow(journey_class).to receive(:new).and_return(journey)
+      
       subject.start(first_station)
       expect(subject.journey_log).to include journey
+    end
+  end
+
+  describe '#current_journey' do
+    it 'returns an incomplete journey' do
+      
+      expect(subject.start(first_station)).to eq [{entry_station: first_station}]
     end
   end
 
