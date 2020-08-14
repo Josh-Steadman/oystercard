@@ -11,15 +11,19 @@ describe JourneyLog do
   it { is_expected.to respond_to :finish }
   it { is_expected.to respond_to :journeys }
   
+  
 describe '#start' do
     it 'starts a journey' do
+      
       expect(journey_class).to receive(:new).with(entry_station: first_station)
       subject.start(first_station)
+      p subject.journey_log
     end
 
     it 'records start of journey' do
+      allow(journey_class).to receive(:new).and_return(journey)
       subject.start(first_station)
-      expect(subject.journeys).to include journey
+      expect(subject.journey_log).to include journey
     end
   end
 
